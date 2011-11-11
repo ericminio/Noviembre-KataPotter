@@ -1,32 +1,29 @@
 package org.ericminio.kata.potter;
 
-
+import static org.ericminio.kata.potter.Baskets.aBasketWithBook;
+import static org.ericminio.kata.potter.Baskets.aBasketWithBooks;
+import static org.ericminio.kata.potter.Baskets.anEmptyBasket;
+import static org.ericminio.kata.potter.PriceFixture.priceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
 import org.junit.Test;
 
 public class PotterTest {
 
-	@Before
-	public void setUp() throws Exception {
+	@Test
+	public void thePriceOfAnEmptyBasketIs0() {
+		assertThat(priceOf(anEmptyBasket()), is(0));
 	}
 	
 	@Test
-	public void priceOfEmptyBasketIs0() {
-		assertThat(priceOf(emptyBasket()), is(0));
+	public void thePriceOfOneBookIs8() {
+		assertThat(priceOf(aBasketWithBook("volume 1")), is(8));
 	}
-
-	private Integer priceOf(List<Book> basket) {
-		return new Library().priceOf(basket);
-	}
-
-	private List<Book> emptyBasket() {
-		return new ArrayList<Book>();
+	
+	@Test
+	public void thePriceOfTwoSameBooksIs16() {
+		assertThat(priceOf(aBasketWithBooks("v1", "v1")), is(16));
 	}
 
 }

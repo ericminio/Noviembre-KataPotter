@@ -5,7 +5,7 @@ import java.util.List;
 public class Library {
 
 	public Integer priceOf(List<Book> basket) {
-		return 0;
+		return 8 * basket.size();
 	}
 
 }
