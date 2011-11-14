@@ -1,10 +1,11 @@
 package org.ericminio.kata.potter;
 
-import java.util.List;
+import org.ericminio.kata.potter.builders.BasketBuilder;
+
 
 public class PriceFixture {
 
-	public static Integer priceOf(List<Book> basket) {
-		return new Library().priceOf(basket);
+	public static Double priceOf(BasketBuilder basketBuilder) {
+		return new Library().priceOf(basketBuilder.build());
 	}
 }
