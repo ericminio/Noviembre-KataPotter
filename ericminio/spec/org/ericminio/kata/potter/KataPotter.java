@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-public class LibraryTest {
+public class KataPotter {
 
 	@Test
 	public void basicCases() {
